@@ -1,11 +1,10 @@
-const helper = { }
+import {NextFunction, Request, Response} from "express";
 
-helper.isAutenticated = (req,res,next) => {
+const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
     if (req.isAuthenticated()) {
-        
         return next();
     } 
     req.flash ('error_msg' , 'You should be logged in to see this section! ')
     res.redirect('/users/signin')
 }
-module.exports = helper
+export default isAuthenticated;
