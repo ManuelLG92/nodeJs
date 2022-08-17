@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import {Schema, model} from 'mongoose';
 
 export interface UserInterface {
     id: string;
@@ -8,12 +8,13 @@ export interface UserInterface {
     createdAt: Date;
     updatedAt: Date;
 }
+
 const UserSchema = new Schema<UserInterface>({
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique : true },
-    password: { type: String, required: true },
-    createdAt : {type: Date, required: true},
-    updatedAt : {type: Date, required: true},
+    name: {type: String, required: true},
+    email: {type: String, required: true, unique: true},
+    password: {type: String, required: true},
+    createdAt: {type: Date, required: true},
+    updatedAt: {type: Date, required: true},
 });
 
 /*UserSchema.methods.encryptPassword = async password => {
