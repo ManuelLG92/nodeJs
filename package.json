@@ -35,6 +35,7 @@
     "@types/morgan": "^1.9.3",
     "@types/node": "*",
     "@types/passport": "^1.0.10",
+    "@types/passport-local": "^1.0.34",
     "bcrypt": "^5.0.1",
     "nodemon": "^2.0.19",
     "ts-node": "^10.9.1",

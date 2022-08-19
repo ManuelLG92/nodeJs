@@ -23,13 +23,13 @@ export const signup = async (req: Request, res: Response) => {
     } else {
         const emailUser = await User.findOne({ email : email });
         if (emailUser) {
-            req.flash('error_msg', 'This email is already registred.')
+            req.flash('error_msg', 'This email is already registered.')
             res.redirect('/users/signup')
         } else {
             const newUser = new User({name,email, password})
             newUser.password = await bcrypt.hash(password, 10);
             await newUser.save()
-            req.flash('success_msg', 'User registred successfully')
+            req.flash('success_msg', 'User registered successfully')
             res.redirect('/users/signin')
         }
 
@@ -49,7 +49,7 @@ export const signIn = passport.authenticate('local', {
 export const logout = (req: Request, res: Response, next: NextFunction) => {
     req.logout((err) => {
         if (err) { return next(err); }
-        req.flash('success_msg' , 'Sesion closed!')
+        req.flash('success_msg' , 'Session closed!')
         res.redirect('/');
     });
 }

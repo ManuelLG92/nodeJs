@@ -42,6 +42,7 @@ export const renderEditForm = async (req: Request, res: Response) => {
         if (!note){
             message = 'Not not found.';
         }
+
         req.flash('error_msg' , message)
 
         return res.redirect('/notes')
