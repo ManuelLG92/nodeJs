@@ -14,12 +14,12 @@ export const noteRoutes: RouterInterface[] =
         {
             method: RouterMethodsRegister.get,
             path: 'notes/add',
-            handler: {isAuthenticated, renderNoteForm}
+            handler: { renderNoteForm}
         },
         {
-            method: RouterMethodsRegister.get,
+            method: RouterMethodsRegister.post,
             path: 'notes/new',
-            handler: {isAuthenticated, renderNewNote}
+            handler: {renderNewNote}
         },
         {
             method: RouterMethodsRegister.get,

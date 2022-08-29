@@ -1,4 +1,3 @@
-import { BadRequestException } from '@nestjs/common';
 import { v4 as uuidV4, validate } from 'uuid';
 import { StringValueObject } from './StringValueObject';
 
@@ -9,7 +8,7 @@ export class IdValueObject extends StringValueObject {
 
   protected validate(): void {
     if (!validate(this.valuePrimitive)) {
-      throw new BadRequestException(
+      throw new Error(
         `Incorrect Uuid format. "${this.valuePrimitive}"`,
       );
     }

@@ -1,13 +1,13 @@
 import express, {Express, Router} from "express";
 import path from "path";
 import {ExpressHandlebars} from 'express-handlebars';
-import methodOverride from 'method-override';
 import session from 'express-session';
 import morgan from 'morgan';
 import flash from 'express-flash';
 import passport from 'passport';
 import dbConnection from "./database";
 import registerRoutes from "./routes/export";
+import bodyParser from "body-parser";
 const app: Express = express();
 require('./config/passport')
 
@@ -22,9 +22,17 @@ app.engine('.hbs', new ExpressHandlebars({
 }).engine);
 
 app.set('view engine', '.hbs')
+
 app.use(morgan('dev'))
-app.use(express.urlencoded({extended: false})) //Rcibir los datos del usuario, password,etc
-app.use(methodOverride('_method'));
+/*// create application/json parser
+var jsonParser = bodyParser.json()
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+app.use(urlencodedParser)*/
+app.use(bodyParser.urlencoded({extended: true})) //Rcibir los datos del usuario, password,etc
+app.use(bodyParser.json());
+// app.use(methodOverride('_method'));
 app.use(session(
     {
         cookie: {maxAge: 60000},
@@ -39,6 +47,7 @@ app.use(passport.session());
 app.use(flash());
 
 const router = Router();
+// router.use(bodyParser.json())
 registerRoutes(router)
 app.use(router)
 
@@ -55,6 +64,7 @@ app.use((req,res,next) => {
     res.locals.user = flashValues['success_msg'] && req.flash || null
     next();
 })
+
 
 //Statics files
 app.use(express.static(path.join(__dirname, 'public')))

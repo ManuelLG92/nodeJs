@@ -1,4 +1,4 @@
-import { renderSignInForm,renderSignupForm,signup,signIn, logout} from '../controllers/users.controllers'
+import { renderSignInForm,renderSignupForm,signup,signIn, logout} from '../User/Infrastructure/users.controllers'
 import isAuthenticated from "../helpers/Auth";
 import {RouterInterface, RouterMethodsRegister} from "./utils";
 

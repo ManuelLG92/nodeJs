@@ -1,13 +1,12 @@
 import { BaseValueObject } from './BaseValueObject';
-import { BadRequestException } from '@nestjs/common';
 
 export class StringValueObject extends BaseValueObject<string> {
-  protected valuePrimitive?: string;
+  protected valuePrimitive: string;
   protected MAX_LENGTH = 255;
   protected MIN_LENGTH = 1;
   protected NAME = 'Base String';
 
-  protected constructor(value?: string) {
+  protected constructor(value: string) {
     super(value);
     this.valuePrimitive = value.trim();
     this.validate();
@@ -23,7 +22,7 @@ export class StringValueObject extends BaseValueObject<string> {
       this.valuePrimitive?.length > this.MAX_LENGTH ||
       this.valuePrimitive?.length < this.MIN_LENGTH
     ) {
-      throw new BadRequestException(
+      throw new Error(
         `${this.NAME} value should be at least ${this.MIN_LENGTH} and maximum ${this.MAX_LENGTH} characters.`,
       );
     }

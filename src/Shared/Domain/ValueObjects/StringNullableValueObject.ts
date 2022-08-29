@@ -12,7 +12,7 @@ export class StringNullableValueObject extends BaseValueObject<string|undefined>
     this.validate();
   }
 
-  static create(value: string) {
+  static create(value?: string) {
     return new this(value);
   }
 
