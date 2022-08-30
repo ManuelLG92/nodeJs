@@ -1,3 +1,5 @@
+import {AppController} from "../../Shared/Infrastructure/Controller/AppController";
+
 export enum RouterMethodsRegister {
     get ='get',
     post = 'post',
@@ -10,7 +12,8 @@ export enum RouterMethodsRegister {
 export interface RouterInterface {
     method: RouterMethodsRegister,
     path: string,
-    handler: any
+    controller?: AppController,
+    middlewares: any,
 }
 
 

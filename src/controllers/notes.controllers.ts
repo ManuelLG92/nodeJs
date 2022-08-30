@@ -10,39 +10,39 @@ export const renderNoteForm = (_req: Request, res: Response) => {
     res.render('notes/new.hbs')
 }
 
-export const renderNewNote = async (req: Request, res: Response) => {
-
-    console.log(req.body);
-
-    const {title, description, id}:{title: string; description: string; id: string} = (req.body)
-    const command = CreateNoteCommand.create({title, description});
-    const handler = new CreateNoteCommandHandler();
-    const persistence = new NoteRepository();
-    const item = await persistence.findOne(IdValueObject.create(id) as unknown as IdValueObject) as unknown as Note;
-    //console.log('item fetched', item);
-    console.log('item serialize', item?.serialize());
-
-    const response = {
-        id: item?.id().value(),
-        user: item.user().value(),
-        title: item.title().value(),
-        description: item.description().value(),
-    }
-    return res.status(201).json(response).end();
-    // await handler.execute(command);
-     console.log('done');
-
-
-    // const newNote = new Note({ title, description, user: '630aa046d1606ab304cf7ae4', createdAt: new Date(),  updatedAt: new Date()})
-    // // @ts-ignore
-    // //newNote.user = '630aa046d1606ab304cf7ae4';
-    // // console.log(req.body, title, description)
-    // // process.exit(1)
-    // await newNote.save();
-    // req.flash('success_msg', "Your note has been added successfully.")
-    // res.redirect('/notes')
-    // res.render('notes/new.hbs')
-}
+// export const renderNewNote = async (req: Request, res: Response) => {
+//
+//     console.log(req.body);
+//
+//     const {title, description, id}:{title: string; description: string; id: string} = (req.body)
+//     const command = CreateNoteCommand.create({title, description});
+//     const handler = new CreateNoteCommandHandler();
+//     const persistence = new NoteRepository();
+//     const item = await persistence.findOne(IdValueObject.create(id) as unknown as IdValueObject) as unknown as Note;
+//     //console.log('item fetched', item);
+//     console.log('item serialize', item?.serialize());
+//
+//     const response = {
+//         id: item?.id().value(),
+//         user: item.user().value(),
+//         title: item.title().value(),
+//         description: item.description().value(),
+//     }
+//     return res.status(201).json(response).end();
+//     // await handler.execute(command);
+//      console.log('done');
+//
+//
+//     // const newNote = new Note({ title, description, user: '630aa046d1606ab304cf7ae4', createdAt: new Date(),  updatedAt: new Date()})
+//     // // @ts-ignore
+//     // //newNote.user = '630aa046d1606ab304cf7ae4';
+//     // // console.log(req.body, title, description)
+//     // // process.exit(1)
+//     // await newNote.save();
+//     // req.flash('success_msg', "Your note has been added successfully.")
+//     // res.redirect('/notes')
+//     // res.render('notes/new.hbs')
+// }
 
 export const renderNotes = async (req: Request, res: Response) => {
     // @ts-ignore

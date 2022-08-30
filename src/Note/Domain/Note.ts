@@ -48,7 +48,7 @@ export class Note extends AggregateRoot implements WithToPrimitivesInterface {
         return this._user;
     }
 
-   title(): StringValueObject {
+    title(): StringValueObject {
         return this._title;
     }
 
@@ -62,19 +62,11 @@ export class Note extends AggregateRoot implements WithToPrimitivesInterface {
         return new Note(
             IdValueObject.create(obj[NoteProperties.id] as unknown as string) as unknown as IdValueObject,
             MongoIdValueObject.create(obj[NoteProperties.user] as unknown as string) as unknown as IdValueObject,
-           StringValueObject.create(obj[NoteProperties.title] as unknown as string),
-           StringNullableValueObject.create(obj[NoteProperties.description] as unknown as string),
+            StringValueObject.create(obj[NoteProperties.title] as unknown as string),
+            StringNullableValueObject.create(obj[NoteProperties.description] as unknown as string),
             new Date(obj[NoteProperties.createdAt] as unknown as string),
             new Date(obj[NoteProperties.updatedAt] as unknown as string),
         );
-        // return {
-        //     _id: IdValueObject.create(obj[NoteProperties.id] as unknown as string) as unknown as IdValueObject,
-        //     _user: MongoIdValueObject.create(obj[NoteProperties.user] as unknown as string) as unknown as IdValueObject,
-        //     _title: StringValueObject.create(obj[NoteProperties.title] as unknown as string),
-        //     _description: StringNullableValueObject.create(obj[NoteProperties.description] as unknown as string),
-        //     _createdAt: new Date(obj[NoteProperties.createdAt] as unknown as string),
-        //     _updatedAt: new Date(obj[NoteProperties.updatedAt] as unknown as string),
-        // }
     }
 
     toPersistence(): NoteInterface {

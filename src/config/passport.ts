@@ -1,8 +1,8 @@
-import {UserInterface} from "../models/Users";
+import {UserInterface} from "../User/Infrastructure/UserModel";
 
 import passport from "passport";
 import {Strategy} from "passport-local";
-import User from "../models/Users";
+import UserModel from "../User/Infrastructure/UserModel";
 import bcrypt from 'bcrypt';
 
 passport.use(new Strategy({
@@ -10,7 +10,7 @@ passport.use(new Strategy({
     passwordField: 'password'
 }, async (email: string, password: string, done: Function) => {
 
-    const user: any | UserInterface = await User.findOne({email});
+    const user: any | UserInterface = await UserModel.findOne({email});
     if (!user) {
         return done(null, false, {message: 'Not user found!'});
     } else {
@@ -29,7 +29,7 @@ passport.serializeUser((user: any|UserInterface,done: Function) => {
 });
 
 passport.deserializeUser((id: string, done: Function) => { // consulta mdiante la navegacion si el id del usuario
-    User.findById(id, (err: any,user: UserInterface) => {
+    UserModel.findById(id, (err: any, user: UserInterface) => {
         done(err,user)
     })
 });

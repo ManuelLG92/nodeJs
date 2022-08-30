@@ -1,10 +1,10 @@
 import {NextFunction, Request, Response} from "express";
 
 const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
+    console.log('entra', new Date().getMilliseconds())
     if (req.isAuthenticated()) {
         return next();
-    } 
-    req.flash ('error_msg' , 'You should be logged in to see this section! ')
-    res.redirect('/users/signin')
+    }
+    res.status(401).json({reason: `Forbidden access`}).end();
 }
 export default isAuthenticated;

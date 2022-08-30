@@ -7,27 +7,27 @@ export const userRoutes: RouterInterface[] =
         {
             method: RouterMethodsRegister.get,
             path: 'users/signup',
-            handler: {renderSignupForm}
+            middlewares: {renderSignupForm}
         },
         {
             method: RouterMethodsRegister.post,
             path: 'users/signup',
-            handler: {signup}
+            middlewares: {signup}
         },
         {
             method: RouterMethodsRegister.get,
             path: 'users/signin',
-            handler: {renderSignInForm}
+            middlewares: {renderSignInForm}
         },
         {
             method: RouterMethodsRegister.post,
             path: 'users/signin',
-            handler: {signIn}
+            middlewares: {signIn}
         },
         {
             method: RouterMethodsRegister.post,
             path: 'users/logout',
-            handler: {isAuthenticated, logout}
+            middlewares: {isAuthenticated, logout}
         }
     ];
 

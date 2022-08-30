@@ -1,5 +1,5 @@
 import passport from 'passport'
-import User from '../../models/Users'
+import UserModel from './UserModel'
 import {NextFunction, Request, Response} from "express";
 import bcrypt from 'bcrypt';
 
@@ -21,14 +21,14 @@ export const signup = async (req: Request, res: Response) => {
         res.render('users/signup', {
             errors, name,email,password,confirm_password})
     } else {
-        const emailUser = await User.findOne({ email : email });
+        const emailUser = await UserModel.findOne({ email : email });
         if (emailUser) {
             req.flash('error_msg', 'This email is already registered.')
             res.redirect('/users/signup')
         } else {
             const t = new Date();
             const t2 = new Date();
-            const newUser = new User({name,email, password,  createdAt: t,  updatedAt: t2})
+            const newUser = new UserModel({name,email, password,  createdAt: t,  updatedAt: t2})
             newUser.password = await bcrypt.hash(password, 10);
             await newUser.save()
             req.flash('success_msg', 'User registered successfully')

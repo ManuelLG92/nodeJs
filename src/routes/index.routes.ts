@@ -6,11 +6,11 @@ export const indexRoutes: RouterInterface[] =
       {
           method: RouterMethodsRegister.get,
           path: '',
-          handler: {index}
+          middlewares: {index}
       },
       {
           method: RouterMethodsRegister.get,
           path: 'about',
-          handler: {about}
+          middlewares: {about}
       }
   ];

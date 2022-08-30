@@ -1,45 +1,33 @@
-import {
-    renderNoteForm,
-    renderNewNote,
-    renderNotes,
-    renderEditForm,
-    renderUpdateNotes,
-    renderDeleteNotes
-} from "../controllers/notes.controllers";
 import {RouterInterface, RouterMethodsRegister} from "./utils";
 import isAuthenticated from "../helpers/Auth";
+import {CreateNoteController, DeleteNoteController, EditNoteController, GetNotesController} from "../Note/Controllers";
 
 export const noteRoutes: RouterInterface[] =
     [
-        {
-            method: RouterMethodsRegister.get,
-            path: 'notes/add',
-            handler: { renderNoteForm}
-        },
+
         {
             method: RouterMethodsRegister.post,
             path: 'notes/new',
-            handler: {renderNewNote}
+            controller: new CreateNoteController(),
+            middlewares: {}
         },
         {
             method: RouterMethodsRegister.get,
             path: 'notes',
-            handler: {isAuthenticated, renderNotes}
+            controller: new GetNotesController(),
+            middlewares: {isAuthenticated}
         },
         {
-            method: RouterMethodsRegister.get,
+            method: RouterMethodsRegister.put,
             path: 'notes/edit/:id',
-            handler: {isAuthenticated, renderEditForm}
+            controller: new EditNoteController(),
+            middlewares: {isAuthenticated}
         },
         {
-            method: RouterMethodsRegister.get,
-            path: 'notes/edit-note/:id',
-            handler: {isAuthenticated, renderUpdateNotes}
-        },
-        {
-            method: RouterMethodsRegister.get,
+            method: RouterMethodsRegister.delete,
             path: 'notes/delete/:id',
-            handler: {isAuthenticated, renderDeleteNotes}
-        }
+            controller: new DeleteNoteController(),
+            middlewares: {isAuthenticated}
+        },
     ];
 
