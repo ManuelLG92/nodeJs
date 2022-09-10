@@ -1,12 +1,12 @@
 import {AppController} from "../../Shared/Infrastructure/Controller/AppController";
 
 export enum RouterMethodsRegister {
-    get ='get',
-    post = 'post',
-    put = 'put',
-    patch = 'patch',
-    delete = 'delete',
-    options = 'options'
+    get ="get",
+    post = "post",
+    put = "put",
+    patch = "patch",
+    delete = "delete",
+    options = "options"
 }
 
 export interface RouterInterface {

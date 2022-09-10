@@ -1,5 +1,5 @@
 import {AppController} from "../../Shared/Infrastructure/Controller/AppController";
-import {NextFunction, Request, Response} from 'express';
+import {NextFunction, Request, Response} from "express";
 import {CreateNoteDto} from "./Dto/CreateNoteDto";
 import {CreateNoteCommand} from "../Application/Create/CreateNoteCommand";
 import {CreateNoteCommandHandler} from "../Application/Create/CreateNoteCommandHandler";

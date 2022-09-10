@@ -55,7 +55,7 @@ export class User extends AggregateRoot implements WithToPrimitivesInterface {
             password: this._password.value(),
             createdAt: this._createdAt,
             updatedAt: this._updatedAt,
-        }
+        };
     }
 
     static fromObject(obj: Record<string, unknown>): User {

@@ -5,12 +5,12 @@ export const indexRoutes: RouterInterface[] =
   [
       {
           method: RouterMethodsRegister.get,
-          path: '',
+          path: "",
           middlewares: {index}
       },
       {
           method: RouterMethodsRegister.get,
-          path: 'about',
+          path: "about",
           middlewares: {about}
       }
   ];

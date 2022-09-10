@@ -1,10 +1,10 @@
-import { BaseValueObject } from './BaseValueObject';
+import { BaseValueObject } from "./BaseValueObject";
 
 export class StringValueObject extends BaseValueObject<string> {
   protected valuePrimitive: string;
   protected MAX_LENGTH = 255;
   protected MIN_LENGTH = 1;
-  protected NAME = 'Base String';
+  protected NAME = "Base String";
 
   protected constructor(value: string) {
     super(value);

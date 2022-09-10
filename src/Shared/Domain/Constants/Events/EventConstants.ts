@@ -1,10 +1,10 @@
 const EventConstants = () => ({
   messagePatterns: {
     user: {
-      findByEmail: 'event.user.findByEmail',
+      findByEmail: "event.user.findByEmail",
     },
     auth: {
-      checkUserByEmail: 'event.auth.user.findByEmail',
+      checkUserByEmail: "event.auth.user.findByEmail",
     },
   },
 });

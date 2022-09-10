@@ -4,7 +4,6 @@ import {NoteRepository} from "../../Infrastructure/NoteRepository";
 import {NoteResponse} from "../Response/NoteResponse";
 import {Note} from "../../Domain/Note";
 import {AppResponse} from "../../../Shared/Domain/Response/AppResponse";
-import {NotFoundException} from "../../../Shared/Infrastructure/Exceptions/NotFoundException";
 
 export class FindByIdQueryHandler extends AppQueryHandler<FindByIdQuery>{
     async execute(query: FindByIdQuery): Promise<AppResponse> {

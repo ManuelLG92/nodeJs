@@ -1,1 +1,1 @@
-export * from './RepositoryProviders';
+export * from "./RepositoryProviders";

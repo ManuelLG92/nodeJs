@@ -1,10 +1,10 @@
-import { BaseValueObject } from './BaseValueObject';
+import { BaseValueObject } from "./BaseValueObject";
 
 export class StringNullableValueObject extends BaseValueObject<string|undefined> {
   protected valuePrimitive?: string;
   MAX_LENGTH = 1000;
   protected MIN_LENGTH = 1;
-  protected NAME = 'Base Nullable String';
+  protected NAME = "Base Nullable String";
 
   protected constructor(value?: string) {
     super(value);

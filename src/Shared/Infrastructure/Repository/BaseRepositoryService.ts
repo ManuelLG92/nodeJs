@@ -1,4 +1,4 @@
-import { Model } from 'mongoose';
+import { Model } from "mongoose";
 import {IdValueObject} from "../../Domain/ValueObjects";
 import { AggregateRoot } from "../../Domain/Entity/AggregateRoot";
 import {NotFoundException} from "../Exceptions/NotFoundException";
@@ -15,7 +15,7 @@ export class BaseRepositoryService<T>{
 
   constructor(entity: string, model: Model<T>) {
     this._entity = (Object.values(require(entity))[0]) as unknown as AggregateRootFunctions;
-    this.entityName = entity.split('/').at(-1)?.replace('.ts','') || 'entity';
+    this.entityName = entity.split("/").at(-1)?.replace(".ts","") || "entity";
     this._model = model;
   }
 
@@ -27,7 +27,7 @@ export class BaseRepositoryService<T>{
     const entity = await this._model.findOne({id: id.value()}).exec();
 
     if (entity === null) {
-      throw NotFoundException.fromBody({reason: `Not found ${this.entityName} for id ${id.value()}`})
+      throw NotFoundException.fromBody({reason: `Not found ${this.entityName} for id ${id.value()}`});
       // throw new Error(`Entity ${id.value()} not found.`)
     }
 
@@ -41,7 +41,7 @@ export class BaseRepositoryService<T>{
   }
 
   async delete(id: IdValueObject): Promise<void> {
-    await this._model.deleteOne({id: id.value()}).exec()
+    await this._model.deleteOne({id: id.value()}).exec();
   }
 
   async find(id: IdValueObject): Promise<AggregateRoot[]> {

@@ -2,7 +2,7 @@ import {BaseValueObject} from "./BaseValueObject";
 
 export class DateValueObject extends BaseValueObject<Date|undefined> {
     protected valuePrimitive?: Date;
-    protected NAME = 'Date Nullable String';
+    protected NAME = "Date Nullable String";
 
     protected constructor(value?: Date) {
         super(value);

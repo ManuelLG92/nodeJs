@@ -1,5 +1,5 @@
-import { v4 as uuidV4, validate } from 'uuid';
-import { StringValueObject } from './StringValueObject';
+import { v4 as uuidV4, validate } from "uuid";
+import { StringValueObject } from "./StringValueObject";
 
 export class IdValueObject extends StringValueObject {
   static generate(): IdValueObject {

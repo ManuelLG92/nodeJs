@@ -14,31 +14,31 @@ export const noteRoutes: RouterInterface[] =
 
         {
             method: RouterMethodsRegister.post,
-            path: 'notes/new',
+            path: "notes/new",
             controller: new CreateNoteController(),
             middlewares: {}
         },
         {
             method: RouterMethodsRegister.get,
-            path: 'notes/:id',
+            path: "notes/:id",
             controller: new GetNoteByIdController(),
             middlewares: {}
         },
         {
             method: RouterMethodsRegister.get,
-            path: 'notes',
+            path: "notes",
             controller: new GetNotesController(),
             middlewares: {isAuthenticated}
         },
         {
             method: RouterMethodsRegister.put,
-            path: 'notes/edit/:id',
+            path: "notes/edit/:id",
             controller: new EditNoteController(),
             middlewares: {isAuthenticated}
         },
         {
             method: RouterMethodsRegister.delete,
-            path: 'notes/delete/:id',
+            path: "notes/delete/:id",
             controller: new DeleteNoteController(),
             middlewares: {isAuthenticated}
         },

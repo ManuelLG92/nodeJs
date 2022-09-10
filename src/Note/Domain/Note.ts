@@ -77,7 +77,7 @@ export class Note extends AggregateRoot implements WithToPrimitivesInterface {
             description: this._description.value(),
             createdAt: this._createdAt,
             updatedAt: this._updatedAt,
-        }
+        };
     }
 
     public static readonly CLASS_PATH = __filename;

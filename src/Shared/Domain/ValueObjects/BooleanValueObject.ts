@@ -1,4 +1,4 @@
-import { BaseValueObject } from './BaseValueObject';
+import { BaseValueObject } from "./BaseValueObject";
 
 export class BooleanValueObject extends BaseValueObject<boolean> {
   protected valuePrimitive: boolean;

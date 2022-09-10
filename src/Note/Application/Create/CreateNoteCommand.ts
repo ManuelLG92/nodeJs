@@ -19,6 +19,6 @@ export class CreateNoteCommand extends AppCommand{
         return new CreateNoteCommand(
             StringValueObject.create(createNoteDto.title),
             StringNullableValueObject.create(createNoteDto.description)
-        )
+        );
     }
 }

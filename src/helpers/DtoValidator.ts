@@ -1,6 +1,5 @@
 import {BaseDto} from "../Shared/Infrastructure/Dto/BaseDto";
 import {NextFunction, Response, Request} from "express";
-import {IException} from "../Shared/Infrastructure/Exceptions/BaseException";
 
 // @ts-ignore
 export const asyncHandler = fn => (req: Request, res: Response, next: NextFunction) => {
@@ -16,7 +15,7 @@ export const asyncHandler = fn => (req: Request, res: Response, next: NextFuncti
     } catch (err) {
         return next(err);
     }
-}
+};
 
 export const DtoValidator = async (dto: BaseDto, res: Response, next: NextFunction) => {
     return next();
@@ -32,4 +31,4 @@ export const DtoValidator = async (dto: BaseDto, res: Response, next: NextFuncti
     //     return res.status(500).json({reason: 'internal server error'});
     // });
 
-}
+};

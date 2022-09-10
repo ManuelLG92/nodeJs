@@ -1,4 +1,4 @@
-import { BaseValueObject } from './BaseValueObject';
+import { BaseValueObject } from "./BaseValueObject";
 
 export class IntegerValueObject extends BaseValueObject<number> {
   protected valuePrimitive: number;

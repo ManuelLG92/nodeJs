@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from "mongoose";
 
 export interface NoteInterface {
     id?: string;
@@ -19,9 +19,9 @@ const noteSchema = new Schema<NoteInterface>({
     user : {type: String, required: true},
     createdAt : {type: Date, required: true},
     updatedAt : {type: Date, required: true},
-}, {timestamps: true})
+}, {timestamps: true});
 
-const NoteModel = model<NoteInterface>('Note', noteSchema);
+const NoteModel = model<NoteInterface>("Note", noteSchema);
 
 export default NoteModel;
 

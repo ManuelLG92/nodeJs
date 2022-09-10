@@ -11,13 +11,13 @@ export enum statusCode {
 }
 export class BaseException extends Error implements IException  {
      constructor(
-        public readonly name: string = 'Exception',
+        public readonly name: string = "Exception",
         public readonly status: statusCode = statusCode.INTERNAL_SERVER_ERROR,
-        public readonly message: string = 'Internal server Error'
+        public readonly message: string = "Internal server Error"
     ) {
         super(message);
-        Object.setPrototypeOf(this,new.target.prototype)
-        Error.captureStackTrace(this)
+        Object.setPrototypeOf(this,new.target.prototype);
+        Error.captureStackTrace(this);
     }
 
     toJSON(): IException{
@@ -25,7 +25,7 @@ export class BaseException extends Error implements IException  {
             name: this.name,
             status: this.status,
             message: this.message,
-        }
+        };
     }
 
     toJsonStringify(): string{
@@ -33,6 +33,6 @@ export class BaseException extends Error implements IException  {
             name: this.name,
             status: this.status,
             message: this.message,
-        })
+        });
     }
 }

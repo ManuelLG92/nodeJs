@@ -1,4 +1,4 @@
-import {IdValueObject} from '../ValueObjects';
+import {IdValueObject} from "../ValueObjects";
 
 export interface IAggregateRoot {
     _id: IdValueObject,
@@ -27,14 +27,14 @@ export abstract class AggregateRoot {
         return this._updatedAt;
     }
 
-    public static fromObject(obj: Record<string, unknown>): AggregateRoot {
-        throw new Error(`Implement this methods in the properly son class.`);
-    };
+    public static fromObject(): AggregateRoot {
+        throw new Error("Implement this methods in the properly son class. ");
+    }
 
     public static readonly CLASS_PATH = __filename;
 
     serialize(){
-        return 'todo'
+        return "todo";
     }
 
 
