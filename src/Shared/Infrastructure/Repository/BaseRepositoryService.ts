@@ -1,6 +1,7 @@
 import { Model } from 'mongoose';
 import {IdValueObject} from "../../Domain/ValueObjects";
 import { AggregateRoot } from "../../Domain/Entity/AggregateRoot";
+import {NotFoundException} from "../Exceptions/NotFoundException";
 
 interface AggregateRootFunctions {
   fromObject (item: object): AggregateRoot;
@@ -10,9 +11,11 @@ export class BaseRepositoryService<T>{
 
   private _model!: Model<T>;
   private readonly _entity: AggregateRootFunctions;
+  private readonly entityName!: string;
 
   constructor(entity: string, model: Model<T>) {
     this._entity = (Object.values(require(entity))[0]) as unknown as AggregateRootFunctions;
+    this.entityName = entity.split('/').at(-1)?.replace('.ts','') || 'entity';
     this._model = model;
   }
 
@@ -24,7 +27,8 @@ export class BaseRepositoryService<T>{
     const entity = await this._model.findOne({id: id.value()}).exec();
 
     if (entity === null) {
-      throw new Error(`Entity ${id} not found.`)
+      throw NotFoundException.fromBody({reason: `Not found ${this.entityName} for id ${id.value()}`})
+      // throw new Error(`Entity ${id.value()} not found.`)
     }
 
     return this._entity.fromObject(entity);

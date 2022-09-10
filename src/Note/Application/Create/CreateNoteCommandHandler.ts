@@ -8,7 +8,6 @@ import {NoteRepository} from "../../Infrastructure/NoteRepository";
 export class CreateNoteCommandHandler extends AppCommandHandler<CreateNoteCommand>{
    async execute(createNoteCommand: CreateNoteCommand): Promise<void> {
         const note  = Note.create(MongoIdValueObject.create('630aa046d1606ab304cf7ae4') as unknown as IdValueObject,createNoteCommand.title, createNoteCommand.description);
-        const persistence = new NoteRepository();
-        await persistence.save(note.toPersistence());
+        await NoteRepository.getInstance().save(note.toPersistence());
     }
 }

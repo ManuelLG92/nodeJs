@@ -5,5 +5,13 @@ import {BaseRepositoryService} from "../../Shared/Infrastructure/Repository/Base
 import {NoteInterface} from "./NoteModel";
 
 export class NoteRepository extends BaseRepositoryService<NoteInterface> implements NoteRepositoryPort {
-    constructor() {super(Note.CLASS_PATH, NoteModel);}
+    static instance: NoteRepository;
+    private constructor() {super(Note.CLASS_PATH, NoteModel);}
+
+    static getInstance(): NoteRepository{
+        if (!NoteRepository.instance){
+            NoteRepository.instance = new NoteRepository();
+        }
+        return NoteRepository.instance;
+    }
 }

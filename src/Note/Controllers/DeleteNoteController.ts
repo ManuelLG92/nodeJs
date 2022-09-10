@@ -1,10 +1,9 @@
 import {AppController} from "../../Shared/Infrastructure/Controller/AppController";
-import { Request, Response } from 'express';
+import {NextFunction, Request, Response} from 'express';
 
 export class DeleteNoteController extends AppController {
 
-    async execute(req: Request, res: Response): Promise<Response> {
-        console.log('entra delete')
+    async execute(req: Request, res: Response, next: NextFunction): Promise<Response|any> {
         return res.status(204).send();
     }
 

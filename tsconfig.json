@@ -2,13 +2,15 @@
   "compilerOptions": {
     "outDir": "./dist",
     "allowJs": true,
-    "target": "es5",
+    "target": "ES5",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "include": ["./src/**/*"]
 }
