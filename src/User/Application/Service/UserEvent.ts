@@ -6,8 +6,8 @@ export class UserEvent {
     this.initializeEventListeners();
     }
     private initializeEventListeners(): void {
-        AppEventEmitter.getInstance().on('testing', (e) => {
-           console.log('received', e)
+        AppEventEmitter.getInstance().on("testing", (e) => {
+           console.log("received", e);
         });
     }
 }

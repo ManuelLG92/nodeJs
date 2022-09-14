@@ -2,7 +2,7 @@ import {AppController} from "../../Shared/Infrastructure/Controller/AppControlle
 import { Request, Response, NextFunction } from "express";
 
 export class GetNotesController extends AppController{
-     async execute(req: Request, res: Response, next: NextFunction): Promise<Response|any> {
+     async execute(req: Request, res: Response, next: NextFunction): Promise<Response|undefined> {
          try{
              return res.status(200).send();
          } catch (e) {

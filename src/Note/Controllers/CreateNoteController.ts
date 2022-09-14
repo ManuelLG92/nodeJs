@@ -6,7 +6,7 @@ import {CreateNoteCommandHandler} from "../Application/Create/CreateNoteCommandH
 
 export class CreateNoteController extends AppController {
 
-    async execute(req: Request, res: Response, next: NextFunction): Promise<Response | any> {
+    async execute(req: Request, res: Response, next: NextFunction): Promise<Response | undefined> {
         try {
             this.dto = new CreateNoteDto(req.body);
             await this.dto.validateOrRejectApp();

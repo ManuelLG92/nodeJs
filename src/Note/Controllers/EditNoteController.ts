@@ -3,7 +3,7 @@ import {Request, Response, NextFunction} from "express";
 
 export class EditNoteController extends AppController {
 
-    async execute(req: Request, res: Response, next: NextFunction): Promise<Response | any> {
+    async execute(req: Request, res: Response, next: NextFunction): Promise<Response | undefined> {
         try {
             console.log("entra Edit");
             return res.status(204).send();

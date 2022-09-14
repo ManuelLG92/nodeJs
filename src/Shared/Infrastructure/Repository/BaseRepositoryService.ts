@@ -14,7 +14,7 @@ export class BaseRepositoryService<T>{
   private readonly entityName!: string;
 
   constructor(entity: string, model: Model<T>) {
-    this._entity = (Object.values(require(entity))[0]) as unknown as AggregateRootFunctions;
+    this._entity = (Object.values(import(entity).then(e => e))[0]) as unknown as AggregateRootFunctions;
     this.entityName = entity.split("/").at(-1)?.replace(".ts","") || "entity";
     this._model = model;
   }

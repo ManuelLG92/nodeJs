@@ -6,7 +6,7 @@ import {IGetByIdRequest} from "../Application/Request/IGetByIdRequest";
 import {FindByIdQueryHandler} from "../Application/FindById/FindByIdQueryHandler";
 
 export class GetNoteByIdController extends AppController {
-    async execute(req: Request, res: Response, next: NextFunction): Promise<Response | any> {
+    async execute(req: Request, res: Response, next: NextFunction): Promise<Response | undefined> {
 
         try {
             this.dto = new FindByIdDto(req.params);

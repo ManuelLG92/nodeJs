@@ -5,7 +5,7 @@ export class UnprocessableEntityException extends BaseException {
         super("UnprocessableEntityException", statusCode.UNPROCESSABLE_ENTITY, body);
     }
 
-    static fromBody(body: any): UnprocessableEntityException {
+    static fromBody(body?: object): UnprocessableEntityException {
         return new UnprocessableEntityException(JSON.stringify(body));
     }
 }

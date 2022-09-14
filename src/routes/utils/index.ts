@@ -13,7 +13,7 @@ export interface RouterInterface {
     method: RouterMethodsRegister,
     path: string,
     controller?: AppController,
-    middlewares: any,
+    middlewares: object,
 }
 
 
