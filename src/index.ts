@@ -12,6 +12,7 @@ const app: Express = express();
 require("./config/passport");
 import {Request, Response} from "express";
 import {ErrorWithStatus} from "./Shared/Infrastructure/Exceptions/AppError";
+import {AppEventEmitter} from "./Shared/Infrastructure/Event/AppEventEmitter";
 
 
 app.set("port", process.env.PORT || 3000);
@@ -44,6 +45,8 @@ app.use(passport.initialize());//Siempre despues del modulo session
 app.use(passport.session());
 app.use(flash());
 
+
+AppEventEmitter.initListeners();
 const router = Router();
 // router.use(bodyParser.json())
 registerRoutes(router);

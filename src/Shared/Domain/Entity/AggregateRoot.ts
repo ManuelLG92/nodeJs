@@ -27,7 +27,7 @@ export abstract class AggregateRoot {
         return this._updatedAt;
     }
 
-    public static fromObject(): AggregateRoot {
+    public static fromObject(obj: Record<string, unknown>): AggregateRoot {
         throw new Error("Implement this methods in the properly son class. ");
     }
 
